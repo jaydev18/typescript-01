@@ -1,34 +1,52 @@
-//type annotation
+// union type allow a variable to hold a value of multiple types
 
-let awsomeName = "shakeandbake";
+let tax: number | string = 10;
 
-awsomeName = "something";
+tax = 100;
+tax = "$10";
 
-awsomeName = awsomeName.toUpperCase();
-console.log(awsomeName);
+console.log(tax);
 
-// awsomeName = 20; i can't do this
+let requestStatus: "pending" | "success" | "error" = "pending";
 
-let amount: number = 20;
-amount = 12 - 1;
-// amount = 'pants' i can't reassign a string
+// requestStatus = 'jdjahdj' this will through me an error
 
-let isAwsome: boolean = true;
+requestStatus = "pending";
+requestStatus = "success";
 
-isAwsome = false;
-console.log(isAwsome);
+// -----------------------------------
 
-/**
-- Create a variable of type string and try to invoke a string method on it.
-- Create a variable of type number and try to perform a mathematical operation on it.
-- Create a variable of type boolean and try to perform a logical operation on it.
-- Try to assign a value of a different type to each of these variables and observe the TypeScript compiler's response.
- */
+//any type
 
-let a: string = "jaydev";
+let notSure: any;
+notSure = 4;
+notSure = "maybe a string";
+notSure = false;
+console.log(notSure);
 
-console.log(a.toUpperCase());
+//-----------------------------------
 
-let b: number = 3;
+const books = ["1984", "Brave new world", "fahrenheit 451"];
 
-console.log(b * b);
+let foundBook: string | undefined;
+
+for (let book of books) {
+  if (book === "1983") {
+    foundBook = book;
+    foundBook.length;
+    break;
+  }
+}
+
+console.log(foundBook?.length);
+//-------------------------
+//array
+
+let price: number[] = [100, 75, 42];
+// price.push('hello') ; //can't do this
+
+let fruit: string[] = ["apple", "orange"];
+
+// let randomValues: [] = ['hello']
+
+let array: (string | boolean)[] = ["jaydev", true, "hello world"];
